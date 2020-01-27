@@ -1,0 +1,1306 @@
+{
+	"info": {
+		"_postman_id": "ffe1d9cd-3fcd-418d-9bb3-ca79c8ef2585",
+		"name": "Perform 2020",
+		"description": "Documentation: http://{{server}}/rest-api-doc/index.jsp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Credential management",
+			"item": [
+				{
+					"name": "Get CF credentials",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/cloudFoundry/credentials",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"cloudFoundry",
+								"credentials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get CF credential details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/cloudFoundry/credentials/CF_FOUNDATION-58CE09835B10FEC5",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"cloudFoundry",
+								"credentials",
+								"CF_FOUNDATION-58CE09835B10FEC5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get K8s credentials",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/kubernetes/credentials",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"kubernetes",
+								"credentials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get K8s credential details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/kubernetes/credentials/KUBERNETES_CLUSTER-8FAEE8780901E70B",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"kubernetes",
+								"credentials",
+								"KUBERNETES_CLUSTER-8FAEE8780901E70B"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Azure credentials",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/azure/credentials",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"azure",
+								"credentials"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Azure credentials details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/azure/credentials/AZURE_CREDENTIALS-FF1B05415C70051F",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"azure",
+								"credentials",
+								"AZURE_CREDENTIALS-FF1B05415C70051F"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Manage Cloud provider credentials",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "16696bdf-6004-469e-91fb-83ae72e1c30a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "64862015-4e7b-4fc9-9467-0202bafbc399",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Dashboard report subscription",
+			"item": [
+				{
+					"name": "Get Dashboards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/dashboards",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"dashboards"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get configured reports",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/reports",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe to Dashboard",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"DASHBOARD\",\r\n  \"dashboardId\": \"305080e3-970c-4338-9b54-af7a4edebec8\",\r\n  \"enabled\": \"true\",\r\n  \"subscriptions\": {\r\n    \"WEEK\": [\r\n      \"demo@email.com\"\r\n    ],\r\n    \"MONTH\": [\r\n      \"demo@email.com\",\r\n      \"demo2@email.com\"\r\n    ]\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{server}}/api/config/v1/reports",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get report properties",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/api/config/v1/reports/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"reports",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "eaf414ec-5dfa-4315-8cce-ccd1006f660e",
+									"key": "id",
+									"value": "{{reportid}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe to existing report",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"schedule\": \"MONTH\",\r\n  \"recipients\": [\r\n    \"demo@dynatrace.com\",\r\n    \"demo2@email.com\"\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "{{server}}/api/config/v1/reports/:id/subscribe",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"reports",
+								":id",
+								"subscribe"
+							],
+							"variable": [
+								{
+									"id": "ec09cec7-0fbf-4e21-a3e2-5677f1899345",
+									"key": "id",
+									"value": "{{reportid}}",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Dashboard report",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"DASHBOARD\",\r\n  \"dashboardId\": \"305080e3-970c-4338-9b54-af7a4edebec8\",\r\n  \"enabled\": \"true\",\r\n  \"subscriptions\": {\r\n    \"WEEK\": [\r\n      \"demo@email.com\"\r\n    ],\r\n    \"MONTH\": [\r\n      \"demo@email.com\",\r\n      \"demo2@email.com\"\r\n    ]\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{server}}/api/config/v1/reports/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"reports",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "a7006fc5-f7da-4550-a6ae-be131e629e71",
+									"key": "id",
+									"value": "b736f00c-6ade-41df-9956-72de35dbaf41",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Service metrics",
+			"item": [
+				{
+					"name": "Get calculated service metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/calculatedMetrics/service",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"calculatedMetrics",
+								"service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get calculated service metric details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/calculatedMetrics/service/calc:service.requestsbycode",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"calculatedMetrics",
+								"service",
+								"calc:service.requestsbycode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get management zones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/config/v1/managementZones",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"managementZones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new calculated service metric",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tsmMetricKey\": \"calc:service.mymetric\",\r\n  \"name\": \"My Metric\",\r\n  \"enabled\": true,\r\n  \"metricDefinition\": {\r\n    \"metric\": \"CPU_TIME\"\r\n  },\r\n  \"managementZones\": [\r\n    \"CWS-ALL\"\r\n  ],\r\n  \"unit\": \"MICRO_SECOND\",\r\n  \"conditions\": [\r\n    {\r\n            \"attribute\": \"PROCESS_GROUP_TAG\",\r\n            \"comparisonInfo\": {\r\n                \"type\": \"TAG\",\r\n                \"comparison\": \"TAG_KEY_EQUALS\",\r\n                \"value\": {\r\n                    \"context\": \"CONTEXTLESS\",\r\n                    \"key\": \"dev\"\r\n                },\r\n                \"negate\": false\r\n            }\r\n    }\r\n  ],\r\n  \"dimensionDefinition\": {\r\n    \"name\": \"my dimension\",\r\n    \"dimension\": \"{myPlaceholder}\",\r\n    \"placeholders\": [\r\n      {\r\n        \"name\": \"myPlaceholder\",\r\n        \"attribute\": \"WEBREQUEST_URL_PATH\",\r\n        \"kind\": \"BEFORE_DELIMITER\",\r\n        \"delimiterOrRegex\": \"/booking\",\r\n        \"normalization\": \"ORIGINAL\"\r\n      }\r\n    ],\r\n    \"topX\": 10,\r\n    \"topXDirection\": \"DESCENDING\",\r\n    \"topXAggregation\": \"AVERAGE\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{server}}/api/config/v1/calculatedMetrics/service",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"calculatedMetrics",
+								"service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete custom service metric",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tsmMetricKey\": \"calc:service.mymetric\",\r\n  \"name\": \"My Metric\",\r\n  \"enabled\": true,\r\n  \"metricDefinition\": {\r\n    \"metric\": \"CPU_TIME\"\r\n  },\r\n  \"managementZones\": [\r\n    \"zone1\"\r\n  ],\r\n  \"unit\": \"MICRO_SECOND\",\r\n  \"conditions\": [\r\n    {\r\n      \"attribute\": \"WEBREQUEST_URL_PATH\",\r\n      \"comparisonInfo\": {\r\n        \"type\": \"STRING\",\r\n        \"comparison\": \"BEGINS_WITH\",\r\n        \"value\": \"/url_path\",\r\n        \"negate\": false,\r\n        \"caseSensitive\": false\r\n      }\r\n    }\r\n  ],\r\n  \"dimensionDefinition\": {\r\n    \"name\": \"my dimension\",\r\n    \"dimension\": \"{myPlaceholder}\",\r\n    \"placeholders\": [\r\n      {\r\n        \"name\": \"myPlaceholder\",\r\n        \"attribute\": \"WEBREQUEST_URL_PATH\",\r\n        \"kind\": \"BEFORE_DELIMITER\",\r\n        \"delimiterOrRegex\": \"/booking\",\r\n        \"normalization\": \"ORIGINAL\"\r\n      }\r\n    ],\r\n    \"topX\": 10,\r\n    \"topXDirection\": \"DESCENDING\",\r\n    \"topXAggregation\": \"AVERAGE\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "{{server}}/api/config/v1/calculatedMetrics/service/:metric",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"calculatedMetrics",
+								"service",
+								":metric"
+							],
+							"variable": [
+								{
+									"id": "6461ca16-64a6-49b2-b603-c6554a7913a8",
+									"key": "metric",
+									"value": "calc:service.mymetric",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Use case: Derive new metrics from existig service monitoring data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4ea6618c-ba22-4ab2-ba5b-a7eb9a285e64",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ee2ba2c5-bcf3-4a64-ad20-d554a797a8b6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Log Metrics",
+			"item": [
+				{
+					"name": "Get all log metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Use case: Derive new metrics from existig log data",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "10eaa341-48c3-4cbf-aa7b-77916b9306ea",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b84cfcd8-531b-4915-bb52-514f438a4e18",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Service detection rules",
+			"item": [],
+			"description": "Use case: Management of service detection rules at scale",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b02b9896-2519-4b24-916b-d43daf581790",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f42cc500-faa7-4303-a06f-22cb70dcd3ed",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Mobile Deobfuscation",
+			"item": [
+				{
+					"name": "Get all available symfiles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check availability of symfile for version",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "application/zip",
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "text/plain"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "this is my "
+						},
+						"url": {
+							"raw": "{{server}}/api/config/v1/symfiles/:appId/:package/:os/:vCode/:vName",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"symfiles",
+								":appId",
+								":package",
+								":os",
+								":vCode",
+								":vName"
+							],
+							"variable": [
+								{
+									"id": "b352ecf3-7751-4600-b7f1-b4b62cc98e20",
+									"key": "appId",
+									"value": "752c288d-5973-4c79-b7d1-3a49d4d42ea0",
+									"type": "string"
+								},
+								{
+									"id": "c2ad9720-aef7-4179-92c9-58558cde8483",
+									"key": "package",
+									"value": "com.ruxit.mobile",
+									"type": "string"
+								},
+								{
+									"id": "c6000a9f-e317-4f5d-9f7d-1fd03317103e",
+									"key": "os",
+									"value": "IOS",
+									"type": "string"
+								},
+								{
+									"id": "713ee801-584b-4a68-82ff-2bd1270d13b3",
+									"key": "vCode",
+									"value": "7.9.7983",
+									"type": "string"
+								},
+								{
+									"id": "08dfa846-080e-40da-bdd5-96ceb5c2322a",
+									"key": "vName",
+									"value": "7.9.8",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload symfile for new version",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "text/plain",
+								"description": "application/zip",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "this is my "
+						},
+						"url": {
+							"raw": "{{server}}/api/config/v1/symfiles/:package/:appId/:os/:vCode/:vName",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"symfiles",
+								":package",
+								":appId",
+								":os",
+								":vCode",
+								":vName"
+							],
+							"variable": [
+								{
+									"id": "0a48c725-09ed-4297-b68b-bf06e449bfe3",
+									"key": "package",
+									"value": "com.ruxit.mobile",
+									"type": "string"
+								},
+								{
+									"id": "a1495dc9-c06e-40b7-9269-3a909c0949b7",
+									"key": "appId",
+									"value": "752c288d-5973-4c79-b7d1-3a49d4d42ea0",
+									"type": "string"
+								},
+								{
+									"id": "05926400-658c-498c-83a9-c8aef5a59510",
+									"key": "os",
+									"value": "IOS",
+									"type": "string"
+								},
+								{
+									"id": "e8b7fd83-67e9-4a0a-83b5-29f6367cdda9",
+									"key": "vCode",
+									"value": "2",
+									"type": "string"
+								},
+								{
+									"id": "32232387-c997-4c59-9ed5-0bfab2990dfd",
+									"key": "vName",
+									"value": "test",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Use case: integrate with your build pipeline to update symfiles on deployment",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4047677e-3dd8-4452-8c77-389dde2c54ef",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6d2ee92a-9df8-4d56-b844-8f306c144166",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "K8s agent download",
+			"item": [
+				{
+					"name": "Get available installer packages per OS",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Api-Token {{paas_token}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/deployment/boshrelease/versions/:os",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"deployment",
+								"boshrelease",
+								"versions",
+								":os"
+							],
+							"variable": [
+								{
+									"key": "os",
+									"value": "windows",
+									"type": "string",
+									"description": "windows, unix"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get available installer packages per OS Copy",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Api-Token {{paas_token}}",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/deployment/boshrelease/agent/:os/version/:version/checksum",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"deployment",
+								"boshrelease",
+								"agent",
+								":os",
+								"version",
+								":version",
+								"checksum"
+							],
+							"variable": [
+								{
+									"id": "ce011cf8-c846-4dd1-b2ce-41d115448fe7",
+									"key": "os",
+									"value": "windows",
+									"type": "string"
+								},
+								{
+									"id": "920ed80e-57e9-4407-95db-870a3905b3a2",
+									"key": "version",
+									"value": "1.186.0.20200116-133501",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download installer package",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/deployment/boshrelease/agent/:os/version/",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"deployment",
+								"boshrelease",
+								"agent",
+								":os",
+								"version",
+								""
+							],
+							"variable": [
+								{
+									"id": "21ed8b51-2d7f-4ab9-a009-923b13a04fb4",
+									"key": "os",
+									"value": "",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Use Case: Bootstrap your K8s containers on composition",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "84c5809b-4de4-4282-8c77-cdb381166d6c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b558c35-8039-4d4a-b001-fde05b968b6e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Synthetic locations",
+			"item": [
+				{
+					"name": "Get all synthetic locations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/synthetic/locations?cloudPlatform=AWS&type=PUBLIC",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"synthetic",
+								"locations"
+							],
+							"query": [
+								{
+									"key": "cloudPlatform",
+									"value": "AWS",
+									"description": "AWS,AZURE,ALIBABA,OTHER"
+								},
+								{
+									"key": "type",
+									"value": "PUBLIC",
+									"description": "PUBLIC,PRIVATE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all synthetic nodes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/synthetic/nodes",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"synthetic",
+								"nodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new private synthetic location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"PRIVATE\",\r\n  \"name\": \"Linz Location\",\r\n  \"latitude\": 48.306351,\r\n  \"longitude\": 14.287399,\r\n  \"nodes\": [\r\n    \"1150210579\"\r\n  ],\r\n  \"status\": \"ENABLED\"\r\n}"
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/synthetic/locations",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"synthetic",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete private synthetic location",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"PRIVATE\",\r\n  \"name\": \"Linz Location\",\r\n  \"latitude\": 48.306351,\r\n  \"longitude\": 14.287399,\r\n  \"nodes\": [\r\n    \"93302281\"\r\n  ],\r\n  \"status\": \"ENABLED\"\r\n}"
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/synthetic/locations/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"synthetic",
+								"locations",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "be24abf3-1a3e-48de-9419-7a0431bfddbe",
+									"key": "id",
+									"value": "SYNTHETIC_LOCATION-DE4C5C25590B0668",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Use case: Activate/deactivate your synthetic locations",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Metrics API",
+			"item": [
+				{
+					"name": "Discover metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v2/metrics?metricSelector=builtin:*&fields=displayName,description",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"metrics"
+							],
+							"query": [
+								{
+									"key": "metricSelector",
+									"value": "builtin:*"
+								},
+								{
+									"key": "fields",
+									"value": "displayName,description"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Metric details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v2/metrics/builtin:apps.other.apdex.osAndGeo",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"metrics",
+								"builtin:apps.other.apdex.osAndGeo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Metric transformation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v2/metrics/builtin:apps.other.apdex.osAndGeo:merge(0)",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"metrics",
+								"builtin:apps.other.apdex.osAndGeo:merge(0)"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query metrics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v2/metrics/query?metricSelector=builtin:apps.other.apdex.osAndGeo:merge(0)&entitySelector=type(MOBILE_APPLICATION)&from=now-1h",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"metrics",
+								"query"
+							],
+							"query": [
+								{
+									"key": "metricSelector",
+									"value": "builtin:apps.other.apdex.osAndGeo:merge(0)"
+								},
+								{
+									"key": "entitySelector",
+									"value": "type(MOBILE_APPLICATION)"
+								},
+								{
+									"key": "from",
+									"value": "now-1h"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query metrics - CSV export",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/csv;header=present;charset=utf-8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/api/v2/metrics/query?metricSelector=builtin:apps.other.apdex.osAndGeo:merge(0)&entitySelector=type(MOBILE_APPLICATION)&from=now-1h",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"metrics",
+								"query"
+							],
+							"query": [
+								{
+									"key": "metricSelector",
+									"value": "builtin:apps.other.apdex.osAndGeo:merge(0)"
+								},
+								{
+									"key": "entitySelector",
+									"value": "type(MOBILE_APPLICATION)"
+								},
+								{
+									"key": "from",
+									"value": "now-1h"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Token Management",
+			"item": [
+				{
+					"name": "Get tokens",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup my token scopes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\": \"{{token}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/tokens/lookup",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tokens",
+								"lookup"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "Api-Token {{token}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "fb4c9685-ae7d-4ab7-a575-f5647d1768d1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e8c9b506-eb48-4b5b-8740-c837bd256cae",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
