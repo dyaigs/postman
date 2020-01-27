@@ -532,6 +532,27 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+							"raw": "{{server}}/api/config/v1/calculatedMetrics/log",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"config",
+								"v1",
+								"calculatedMetrics",
+								"log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all log metrics details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
 							"raw": ""
 						}
 					},
@@ -554,34 +575,6 @@
 					"listen": "test",
 					"script": {
 						"id": "b84cfcd8-531b-4915-bb52-514f438a4e18",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Service detection rules",
-			"item": [],
-			"description": "Use case: Management of service detection rules at scale",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "b02b9896-2519-4b24-916b-d43daf581790",
-						"type": "text/javascript",
-						"exec": [
-							""
-						]
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "f42cc500-faa7-4303-a06f-22cb70dcd3ed",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1220,13 +1213,56 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{server}}/api/v1/tokens",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tokens"
+							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Lookup my token scopes",
+					"name": "Create a new token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"My Tenant Token\",\r\n  \"scopes\": [\r\n    \"ReadConfig\",\r\n    \"WriteConfig\",\r\n    \"DataPrivacy\"\r\n  ],\r\n  \"expiresIn\": {\r\n    \"value\": 3600,\r\n    \"unit\": \"SECONDS\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/tokens",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup token scopes",
 					"request": {
 						"method": "POST",
 						"header": [
