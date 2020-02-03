@@ -274,9 +274,9 @@
 							],
 							"variable": [
 								{
+									"description": "append :merge(1)",
 									"key": "metricId",
-									"value": "builtin:apps.other.apdex.osAndVersion",
-									"description": "append :merge(1)"
+									"value": "builtin:apps.other.apdex.osAndVersion:names"
 								}
 							]
 						}
@@ -289,7 +289,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{server}}/api/v2/metrics/query?metricSelector=builtin:apps.other.apdex.osAndVersion:names&resolution=h&from=now-2h&to=now-1h&entitySelector=type(MOBILE_APPLICATION)",
+							"raw": "{{server}}/api/v2/metrics/query?metricSelector=builtin:apps.other.apdex.osAndVersion:names:merge(1,3):avg&resolution=h&from=now-2h&to=now-1h&entitySelector=type(MOBILE_APPLICATION)",
 							"host": [
 								"{{server}}"
 							],
@@ -302,8 +302,8 @@
 							"query": [
 								{
 									"key": "metricSelector",
-									"value": "builtin:apps.other.apdex.osAndVersion:names",
-									"description": ":merge(1,2,3,4):avg"
+									"value": "builtin:apps.other.apdex.osAndVersion:names:merge(1,3):avg",
+									"description": ":merge(1,2):avg"
 								},
 								{
 									"key": "resolution",
